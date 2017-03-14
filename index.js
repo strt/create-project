@@ -3,20 +3,20 @@ const execa = require('execa');
 const Listr = require('listr');
 const util = require('./lib/util');
 
-module.exports = name => {
+module.exports = ({name}) => {
 	const tasks = new Listr([
 		{
 			title: `🚚 Fetching files`,
-			task: ctx => execa('git', ['clone', '--depth=1', 'git@github.com:strt/strt-boilerplate.git', ctx.name])
+			task: () => execa('git', ['clone', '--depth=1', 'git@github.com:strt/strt-boilerplate.git', name])
 				.catch(() => {
 					throw new Error('Git clone failed');
 				})
 		},
 		{
 			title: `🚀 Setting up project`,
-			task: ctx => {
-				process.chdir(`${ctx.name}`);
-				util.updatePkg(ctx.name);
+			task: () => {
+				process.chdir(name);
+				util.updatePkg({name});
 				del(['.git'])
 					.then(() => execa('git', ['init']))
 					.then(() => execa.shell('cp .hooks/* .git/hooks && chmod +x .git/hooks/*'));
@@ -41,5 +41,5 @@ module.exports = name => {
 		}
 	]);
 
-	return tasks.run({name});
+	return tasks.run();
 };

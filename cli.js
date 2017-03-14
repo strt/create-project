@@ -16,7 +16,7 @@ Promise.resolve()
 	.then(ui)
 	.then(app)
 	.then(() => {
-		console.log(`   ✨ Done`);
+		console.log(` ${logSymbols.success} ✨ Done`);
 	})
 	.catch(err => {
 		console.error(`\n${logSymbols.error} ${err.message}`);
