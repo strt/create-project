@@ -6,14 +6,14 @@ const util = require('./lib/util');
 module.exports = ({name}) => {
 	const tasks = new Listr([
 		{
-			title: `🚚 Fetching files`,
+			title: `🚚  Fetching files`,
 			task: () => execa('git', ['clone', '--depth=1', 'git@github.com:strt/strt-boilerplate.git', name])
 				.catch(() => {
 					throw new Error('Git clone failed');
 				})
 		},
 		{
-			title: `🚀 Setting up project`,
+			title: `🚀  Setting up project`,
 			task: () => {
 				process.chdir(name);
 				util.updatePkg({name});
@@ -23,7 +23,7 @@ module.exports = ({name}) => {
 			}
 		},
 		{
-			title: `🔧 Installing packages`,
+			title: `🔧  Installing packages`,
 			task: (ctx, task) => execa('yarn')
 				.catch(() => {
 					ctx.yarn = false;
@@ -31,12 +31,12 @@ module.exports = ({name}) => {
 				})
 		},
 		{
-			title: `🔧 Installing packages with npm`,
+			title: `🔧  Installing packages with npm`,
 			enabled: ctx => ctx.yarn === false,
 			task: () => execa('npm', ['install'])
 		},
 		{
-			title: `🗑 Cleaning up`,
+			title: `🗑  Cleaning up`,
 			task: () => del(['LICENSE', 'README.md', '.hooks'])
 		}
 	]);
