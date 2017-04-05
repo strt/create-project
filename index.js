@@ -37,7 +37,7 @@ module.exports = ({name}) => {
 		},
 		{
 			title: `🗑  Cleaning up`,
-			task: () => del(['LICENSE', 'README.md', '.hooks'])
+			task: () => del(['license', 'readme.md', '.hooks'])
 		}
 	]);
 
