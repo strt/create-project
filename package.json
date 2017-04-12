@@ -1,6 +1,6 @@
 {
   "name": "strt-create-project",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "",
   "license": "MIT",
   "author": {
@@ -12,7 +12,8 @@
   "files": [
     "index.js",
     "cli.js",
-    "lib"
+    "lib",
+		"template"
   ],
   "scripts": {
     "test": "xo"
