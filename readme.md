@@ -1,7 +1,7 @@
 # strt-create-project
 > Easily create new projects with the strt-boilerplate
 
-<img src="screenshot.jpg" width="1153">
+<img src="screenshot.png" width="1153">
 
 ## Install 
 ```
