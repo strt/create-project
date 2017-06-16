@@ -7,7 +7,7 @@ module.exports = ({name}) => {
 	const tasks = new Listr([
 		{
 			title: `🚚  Fetching files`,
-			task: () => execa('git', ['clone', '--depth=1', 'git@github.com:strt/strt-boilerplate.git', name])
+			task: () => execa('git', ['clone', '--depth=1', 'git@github.com:strt/boilerplate.git', name])
 				.catch(() => {
 					throw new Error('Git clone failed');
 				})
