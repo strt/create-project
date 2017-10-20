@@ -1,14 +1,14 @@
 # strt-create-project
-> Easily create new projects with the strt-boilerplate
+> Create new project with only one command
 
 <img src="screenshot.png" width="1153">
 
 ## Install 
 ```
-$ npm install -g strt-create-project
+$ npm install -g @strt/create-project
 ```
 
 ## Usage 
 ```
-$ strt-create-prject <project-name>
+$ create-project <project-name>
 ```

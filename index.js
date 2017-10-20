@@ -19,8 +19,7 @@ module.exports = ({name}) => {
 				util.updatePkg({name});
 				util.addReadme({name});
 				del(['.git', 'readme.md'])
-					.then(() => execa('git', ['init']))
-					.then(() => execa.shell('cp .hooks/* .git/hooks && chmod +x .git/hooks/* || exit 0'));
+					.then(() => execa('git', ['init']));
 			}
 		},
 		{
@@ -38,7 +37,7 @@ module.exports = ({name}) => {
 		},
 		{
 			title: `🗑  Cleaning up`,
-			task: () => del(['license', '.hooks'])
+			task: () => del(['license'])
 		}
 	]);
 

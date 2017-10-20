@@ -7,10 +7,10 @@ const app = require('./');
 
 const cli = meow(`
 	Usage
-		$ strt-create-project <name>
+		$ create-project <name>
 
 	Example
-		$ strt-create-project strateg
+		$ create-project strateg
 	\n
 `);
 
@@ -19,7 +19,7 @@ updateNotifier({pkg: cli.pkg}).notify();
 Promise.resolve()
 	.then(() => {
 		if (cli.input.length === 0) {
-			throw new Error('Specify a project name');
+			throw new Error('Project name is required');
 		}
 
 		if (pathExists.sync(cli.input[0])) {
